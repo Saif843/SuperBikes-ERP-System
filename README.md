@@ -32,6 +32,8 @@
 - If your PostgreSQL username, password and database are all set to default values (they're all `"postgres"`), you can skip the following step. If you've made changes to those default values (different user, db name or password, then you need to follow the next step)
 - Override the config values by adding the following code to `dev.secret.exs`.
 
+<!-- Adding code behavior of the code -->
+
 ```elixir
 config :erp, Erp.Repo,
   username: "custom_username",
