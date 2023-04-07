@@ -58,6 +58,8 @@ Also, **make sure** to run `git update-index --skip-worktree config/dev.secret.e
 
 ## Plugins
 
+<!--  Design Patterns -->
+
 - [Bamboo](https://hexdocs.pm/bamboo/Bamboo.Email.html)
 - [Material UI](https://material-ui.com/)
 
