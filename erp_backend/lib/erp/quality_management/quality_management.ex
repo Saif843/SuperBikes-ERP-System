@@ -3,9 +3,13 @@ defmodule Erp.QualityManagement do
   The QualityManagement context.
   """
 
+ # Import Ecto.Query to use in queries (warning disabled)
   import Ecto.Query, warn: false
+  
+   # Alias the Erp.Repo module for convenience
   alias Erp.Repo
 
+ # Alias the VendorClaim module
   alias Erp.QualityManagement.VendorClaim
 
   @doc """
@@ -67,6 +71,16 @@ defmodule Erp.QualityManagement do
       {:error, %Ecto.Changeset{}}
 
   """
+   ## Examples
+      iex> list_vendor_claim()
+      [%VendorClaim{}, ...]
+  """
+  def list_vendor_claim do
+    Repo.all(VendorClaim)
+  end
+
+  # ...
+  
   def update_vendor_claim(%VendorClaim{} = vendor_claim, attrs) do
     vendor_claim
     |> VendorClaim.changeset(attrs)
@@ -212,4 +226,26 @@ defmodule Erp.QualityManagement do
   def change_client_claim(%ClientClaim{} = client_claim, attrs \\ %{}) do
     ClientClaim.changeset(client_claim, attrs)
   end
+  
+   ## Examples
+      iex> list_client_claim_from_email("example@example.com")
+      [%ClientClaim{}, ...]
+  """
+  def list_client_claim_from_email(email) do
+    query = from client in ClientClaim,
+          where: client.name == ^email
+    Repo.all(query)
+  end
+
+   ## Examples
+      iex> list_client_claim_from_email("example@example.com")
+      [%ClientClaim{}, ...]
+  """
+  def list_client_claim_from_email(email) do
+    query = from client in ClientClaim,
+          where: client.name == ^email
+    Repo.all(query)
+  end
+
+  # ...
 end
