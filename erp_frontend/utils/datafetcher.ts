@@ -162,17 +162,21 @@ export function getUser(callback){
 }
 
 export function getPackagingInfo(orderId, callback) {
+     // Send a GET request to retrieve packaging information for the given order ID
+    axios({
     axios({
         method: 'get',
         url: `${domain}/api/v1/accounting/order/${orderId}`,
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("jwt") },
     }).then(res => {
+     // If the request is successful (status code 200), invoke the callback function with the response data
         if (res.status === 200) {
             callback(res.data)
         } else {
             alert('Package details not found for current user.');
         }
     }).catch(err => {
+    // Log any errors that occur during the request and show an alert to indicate package details were not found
         console.error(err);
         alert('Package details not found for current user.');
     });
