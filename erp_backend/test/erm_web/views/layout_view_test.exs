@@ -1,4 +1,7 @@
 defmodule ErpWeb.LayoutViewTest do
+# This module contains tests for the ErpWeb.LayoutView module.
+
+
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper
@@ -6,14 +9,17 @@ defmodule ErpWeb.LayoutViewTest do
   # import Phoenix.HTML
 
   use ErpWeb.ConnCase, async: true
-
+  
+ # Bring render/3 and render_to_string/3 for testing custom views
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
+ # Test case: renders 404.html
   test "renders 404.html" do
     assert render_to_string(ErpWeb.ErrorView, "404.html", []) == "Not Found"
   end
 
+# Test case: renders 500.html
   test "renders 500.html" do
     assert render_to_string(ErpWeb.ErrorView, "500.html", []) == "Internal Server Error"
   end
