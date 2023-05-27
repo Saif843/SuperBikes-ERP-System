@@ -49,15 +49,19 @@ export function getPlants(callback) {
 }
 
 export function getProductionStatus(callback) {
+    // Send a GET request to retrieve the production status
     axios({
         method: 'get',
         url: `${domain}/api/v1/production`,
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('jwt')},
     }).then(res => {
+        // If the request is successful (status code 200), invoke the callback function with the response data
+
         if (res.status === 200) {
           callback(res.data)
         }
     }).catch(err => {
+        // Log any errors that occur during the request
         console.error(err);
     });
 }
