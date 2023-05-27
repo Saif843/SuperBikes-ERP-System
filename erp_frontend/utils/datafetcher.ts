@@ -21,15 +21,18 @@ export function signUpPost(email:string, password:string, firstName:string, last
 }
 
 export function getBoxesInfo(index, callback) {
+     // Send a GET request to retrieve information about boxes
     axios({
         method: 'get',
         url: `${domain}/api/v1/packaging/boxes/${index}`,
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem('jwt') },
     }).then(res => {
+         // If the request is successful (status code 200), invoke the callback function with the response data
         if (res.status === 200) {
             callback(res.data)
         }
     }).catch(err => {
+         // Log any errors that occur during the request
         console.error(err);
     });
 }
