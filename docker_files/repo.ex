@@ -2,6 +2,10 @@ defmodule Erp.Repo do
   use Ecto.Repo,
     otp_app: :erp,
     adapter: Ecto.Adapters.Postgres
+    
+  # The `Erp.Repo` module is defined to handle database operations using Ecto.
+  # It uses the Ecto.Repo module and configures it to work with the `:erp` OTP application
+  # and the PostgreSQL database adapter.
 
   def init(_, config) do
     config = config
